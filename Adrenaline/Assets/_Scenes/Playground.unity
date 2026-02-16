@@ -616,7 +616,7 @@ MonoBehaviour:
   inCombat: 0
   maxFight: 100
   currentFight: 0
-  fightActiveDuration: 30
+  fightActiveDuration: 5
   isFightActive: 0
   maxFlight: 100
   currentFlight: 0

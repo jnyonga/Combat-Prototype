@@ -121,7 +121,7 @@ public class CombatController : MonoBehaviour
             adrenalineSystem.currentAdrenaline = adrenalineSystem.maxAdrenaline;
         }
 
-        if(!adrenalineSystem.isFightActive)
+        if(!adrenalineSystem.isFightActive && !adrenalineSystem.isBurnoutActive)
         {
             adrenalineSystem.currentFight += fightBarPerHit;
             if(adrenalineSystem.currentFight > adrenalineSystem.maxFight)
