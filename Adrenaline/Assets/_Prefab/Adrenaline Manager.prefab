@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2771553652111380777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8861230873382865387}
+  - component: {fileID: 4763549227453077499}
+  m_Layer: 0
+  m_Name: Adrenaline Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8861230873382865387
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2771553652111380777}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 320.24057, y: 46.02774, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4763549227453077499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2771553652111380777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340a226cbb57d7a43a53ee99022b78f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Adrenaline
+  adrenalineFillBar: {fileID: 0}
+  debugAdrenaline: {fileID: 0}
+  fightFillBar: {fileID: 0}
+  debugFight: {fileID: 0}
+  flightFillBar: {fileID: 0}
+  debugFlight: {fileID: 0}
+  fightBurnout: {fileID: 0}
+  flightBurnout: {fileID: 0}
+  debugStatus: {fileID: 0}
+  InputActions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  maxAdrenaline: 60
+  currentAdrenaline: 60
+  adrenalineDrainRateMulti: 1
+  minAdrenaline: 1
+  inCombat: 0
+  maxFight: 100
+  currentFight: 0
+  fightActiveDuration: 30
+  isFightActive: 0
+  maxFlight: 100
+  currentFlight: 0
+  flightActiveDuration: 30
+  isFlightActive: 0
+  maxBurnout: 100
+  currentBurnout: 0
+  isBurnoutActive: 0

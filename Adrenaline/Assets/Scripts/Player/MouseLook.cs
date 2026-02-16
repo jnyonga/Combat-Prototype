@@ -19,6 +19,7 @@ public class MouseLook : MonoBehaviour
 
     [Header("Block Settings")]
     private bool isBlocking = false;
+    private bool isFreeLook = false;
 
     private float xRotation = 0f;
     private float yRotation = 0f;
@@ -35,17 +36,36 @@ public class MouseLook : MonoBehaviour
 
         if(isBlocking)
         {
-            yRotation += smoothedMouseX;
-            yRotation = Mathf.Clamp(yRotation, -yClamp, yClamp);
-
-            xRotation -= smoothedMouseY;
-            xRotation = Mathf.Clamp(xRotation, -xClamp, xClamp);
-
-            playerCamera.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
-
-            if(hands != null)
+            if(isFreeLook)
             {
-                hands.localRotation = Quaternion.Euler(-xRotation, -yRotation, 0f);
+                yRotation += smoothedMouseX;
+                yRotation = Mathf.Clamp(yRotation, -yClamp, yClamp);
+
+                xRotation -= smoothedMouseY;
+                xRotation = Mathf.Clamp(xRotation, -xClamp, xClamp);
+
+                playerCamera.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+
+                if (hands != null)
+                {
+                    hands.localRotation = Quaternion.Euler(-xRotation, -yRotation, 0f);
+                }
+            }
+            else
+            {
+                transform.Rotate(Vector3.up, smoothedMouseX);
+
+                xRotation -= smoothedMouseY;
+                xRotation = Mathf.Clamp(xRotation, -xClamp, xClamp);
+
+                playerCamera.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+
+                if (hands != null)
+                {
+                    hands.localRotation = Quaternion.identity;
+                }
+
+                yRotation = 0f;
             }
         }
         else
@@ -61,10 +81,7 @@ public class MouseLook : MonoBehaviour
             {
                 hands.localRotation = Quaternion.identity;
             }
-            //Vector3 targetRotation = transform.eulerAngles;
-            //targetRotation.x = xRotation;
-            //playerCamera.eulerAngles = targetRotation;
-
+            
             yRotation = 0f;
         }
     }
@@ -77,5 +94,10 @@ public class MouseLook : MonoBehaviour
     public void SetBlocking(bool blocking)
     {
         isBlocking = blocking;
+    }
+
+    public void SetFreeLook(bool freeLook)
+    {
+        isFreeLook = freeLook;
     }
 }

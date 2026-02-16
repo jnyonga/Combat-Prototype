@@ -16,12 +16,6 @@ public class Adrenaline : MonoBehaviour
     public Image flightBurnout;
     public TextMeshProUGUI debugStatus;
 
-    [Header("Controls")]
-    public InputActionAsset InputActions;
-
-    private InputAction m_activateFightAction;
-    private InputAction m_activateFlightAction;
-
     [Header("Adrenaline Settings")]
     [SerializeField]
     public float maxAdrenaline = 60f;
@@ -83,20 +77,7 @@ public class Adrenaline : MonoBehaviour
         DebugText();
 
     }
-    private void Awake()
-    {
-        m_activateFightAction = InputSystem.actions.FindAction("ActivateFight");
-        m_activateFlightAction = InputSystem.actions.FindAction("ActivateFlight");
-    }
-    private void OnEnable()
-    {
-        InputActions.FindActionMap("Player").Enable();
-    }
-    private void OnDisable()
-    {
-        InputActions.FindActionMap("Player").Disable();
 
-    }
     public void AdrenalineDrain()
     {
         if (inCombat == false && currentAdrenaline > minAdrenaline)
@@ -123,15 +104,16 @@ public class Adrenaline : MonoBehaviour
             currentAdrenaline = 0;
         }
     }
-
-    public void FightMechanic()
+    public void OnActivateFightPressed()
     {
-        FillBarUpdate(fightFillBar, currentFight, maxFight);
-
-        if(m_activateFightAction.WasPressedThisFrame() && currentFight == maxFight && !isFlightActive && !isBurnoutActive)
+        if(currentFight == maxFight && !isFlightActive && !isBurnoutActive)
         {
             isFightActive = true;
         }
+    }
+    public void FightMechanic()
+    {
+        FillBarUpdate(fightFillBar, currentFight, maxFight);
 
         if (isFightActive)
         {
@@ -149,14 +131,16 @@ public class Adrenaline : MonoBehaviour
         
     }
 
-    public void FlightMechanic()
+    public void OnActivateFlightPressed()
     {
-        FillBarUpdate(flightFillBar, currentFlight, maxFlight);
-
-        if (m_activateFlightAction.WasPressedThisFrame() && currentFlight == maxFlight && !isFightActive && !isBurnoutActive)
+        if(currentFlight == maxFlight && !isFightActive && !isBurnoutActive)
         {
             isFlightActive = true;
         }
+    }
+    public void FlightMechanic()
+    {
+        FillBarUpdate(flightFillBar, currentFlight, maxFlight);
 
         if (isFlightActive)
         {
