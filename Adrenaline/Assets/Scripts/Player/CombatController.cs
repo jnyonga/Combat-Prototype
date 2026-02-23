@@ -4,6 +4,7 @@ public class CombatController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private MouseLook mouseLook;
+    [SerializeField] private AnimationController AnimationController;
     [SerializeField] private Animator animator;
     [SerializeField] private Transform punchPoint;
     [SerializeField] private Adrenaline adrenalineSystem;
@@ -28,7 +29,7 @@ public class CombatController : MonoBehaviour
 
         if (animator != null)
         {
-            animator.SetBool("IsBlocking", true);
+            animator.SetBool("isBlocking", true);
         }
 
         Debug.Log("Block started");
@@ -42,7 +43,7 @@ public class CombatController : MonoBehaviour
 
         if (animator != null)
         {
-            animator.SetBool("IsBlocking", false);
+            animator.SetBool("isBlocking", false);
         }
 
         Debug.Log("Block released");

@@ -454,12 +454,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1021456261}
   - component: {fileID: 1021456260}
-  - component: {fileID: 1021456267}
+  - component: {fileID: 1021456268}
   - component: {fileID: 1021456264}
   - component: {fileID: 1021456263}
   - component: {fileID: 1021456262}
   - component: {fileID: 1021456265}
   - component: {fileID: 1021456266}
+  - component: {fileID: 1021456267}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -577,7 +578,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CombatController
   mouseLook: {fileID: 1021456262}
-  animator: {fileID: 0}
+  AnimationController: {fileID: 0}
+  animator: {fileID: 1021456268}
   punchPoint: {fileID: 0}
   adrenalineSystem: {fileID: 1021456266}
   punchDamage: 10
@@ -625,7 +627,19 @@ MonoBehaviour:
   maxBurnout: 100
   currentBurnout: 0
   isBurnoutActive: 0
---- !u!95 &1021456267
+--- !u!114 &1021456267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021456259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b501640e22432224eb79b0668e7d3f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimationController
+--- !u!95 &1021456268
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -635,7 +649,7 @@ Animator:
   m_GameObject: {fileID: 1021456259}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4b25dc723d238ef4a8de2230dc8abf20, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
