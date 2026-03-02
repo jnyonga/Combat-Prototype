@@ -6,6 +6,8 @@ using TMPro;
 public class Adrenaline : MonoBehaviour
 {
     [Header("References")]
+    public Movement movementScript;
+    public CombatController combatScript;
     public Image adrenalineFillBar;
     public TextMeshProUGUI debugAdrenaline;
     public Image fightFillBar;
@@ -63,6 +65,10 @@ public class Adrenaline : MonoBehaviour
     public void Start()
     {
         currentAdrenaline = maxAdrenaline;
+
+        movementScript = GetComponent<Movement>();
+
+        combatScript = GetComponent<CombatController>();
     }
     public void Update()
     {
